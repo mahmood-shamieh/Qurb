@@ -64,9 +64,8 @@ class MyButton extends StatelessWidget {
                         width: 80,
                         height: 80,
                         decoration: BoxDecoration(
-                            // color: Colors.amber,
                             image: DecorationImage(
-                                fit: BoxFit.cover,
+                                fit: BoxFit.fill,
                                 image: NetworkImage(
                                     Constant.mediaPath + 'choices/' + image!)),
                             borderRadius: BorderRadius.circular(50)),
@@ -75,7 +74,6 @@ class MyButton extends StatelessWidget {
                         width: 10,
                       ),
                       SizedBox(
-                        // color: Colors.blue,
                         width: MediaQuery.of(context).size.width - 200,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -100,22 +98,31 @@ class MyButton extends StatelessWidget {
                   ? SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            width: 140,
-                            height: 140,
+                            width: 80,
+                            height: 80,
                             decoration: BoxDecoration(
-                                color: Colors.amber,
+                                image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: NetworkImage(Constant.mediaPath +
+                                        'choices/' +
+                                        image!)),
                                 borderRadius: BorderRadius.circular(50)),
                           ),
-                          Center(
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          SizedBox(
+                            // color: Colors.blue,
+                            width: MediaQuery.of(context).size.width - 200,
                             child: MyTextWidget(
                               text: text,
                               fontWeight: FontWeight.bold,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     )

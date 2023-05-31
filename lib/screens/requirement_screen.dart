@@ -63,418 +63,420 @@ class _RequirementScreenState extends State<RequirementScreen> {
                           )
                         : Stack(
                             children: [
-                              SingleChildScrollView(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: (controller.currentQuestion?.type!
-                                              .toString() ==
-                                          3.toString()
-                                      ? [
-                                          SizedBox(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height /
-                                                3,
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceAround,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                InkWell(
-                                                  onTap: () {
-                                                    Get.defaultDialog(
-                                                        title: "العمر",
-                                                        titleStyle: Constant
-                                                            .getTextStyle(
-                                                                color: Theme.of(
-                                                                        context)
-                                                                    .primaryColor,
-                                                                fontSize: 24,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                        content: SizedBox(
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width -
-                                                              100,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height /
-                                                              3,
-                                                          child:
-                                                              SingleChildScrollView(
-                                                            child: ListBody(
-                                                              children: [
-                                                                18,
-                                                                19,
-                                                                20,
-                                                                21,
-                                                                22,
-                                                                23,
-                                                                24,
-                                                                25,
-                                                                26,
-                                                                27,
-                                                                28,
-                                                                29,
-                                                                30,
-                                                                31,
-                                                                32,
-                                                                33,
-                                                                34,
-                                                                35,
-                                                                36,
-                                                                37,
-                                                                38,
-                                                                39,
-                                                                40,
-                                                                41,
-                                                                42,
-                                                                43,
-                                                                44,
-                                                                45,
-                                                                46,
-                                                                47,
-                                                                48,
-                                                                49,
-                                                                50,
-                                                                51,
-                                                                52,
-                                                                53,
-                                                                54,
-                                                                55,
-                                                                56,
-                                                                57,
-                                                                58,
-                                                                59,
-                                                                60,
-                                                                61,
-                                                                62,
-                                                                63,
-                                                                64,
-                                                                65,
-                                                                66,
-                                                                67,
-                                                                68,
-                                                                69,
-                                                                70,
-                                                                71,
-                                                                72,
-                                                                73,
-                                                                74,
-                                                                75,
-                                                                76,
-                                                                77,
-                                                                78,
-                                                                79,
-                                                                80
-                                                              ]
-                                                                  .map((e) =>
-                                                                      InkWell(
-                                                                        onTap:
-                                                                            () {
-                                                                          Get.back();
-                                                                          controller.addAnswer(
-                                                                              id: e.toString(),
-                                                                              startOrEnd: 'start');
-                                                                        },
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(10),
-                                                                            color: controller.answers[controller.currentQuestion!.id] != null
-                                                                                ? ((controller.answers[controller.currentQuestion!.id]['start'] ?? '') == e.toString() ? Theme.of(context).primaryColor : Colors.transparent)
-                                                                                : Colors.transparent,
-                                                                          ),
-                                                                          child:
-                                                                              MyTextWidget(
-                                                                            text:
-                                                                                e.toString(),
-                                                                            color: controller.answers[controller.currentQuestion!.id] != null
-                                                                                ? ((controller.answers[controller.currentQuestion!.id]['start'] ?? '') == e.toString() ? null : Theme.of(context).primaryColor)
-                                                                                : Theme.of(context).primaryColor,
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                          ),
-                                                                        ),
-                                                                      ))
-                                                                  .toList(),
-                                                            ),
-                                                          ),
-                                                        ));
-                                                  },
-                                                  child: Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                    .size
-                                                                    .width /
-                                                                2 -
-                                                            20,
-                                                    height: 110,
-                                                    padding: Constant.padding,
-                                                    margin: Constant.margin,
-                                                    decoration: BoxDecoration(
-                                                        color: Theme.of(context)
-                                                            .primaryColor,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20)),
-                                                    child: Column(
-                                                      children: [
-                                                        MyTextWidget(
-                                                          text: "من",
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .iconTheme
-                                                                  .color,
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                                        Divider(
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .iconTheme
-                                                                  .color,
-                                                        ),
-                                                        MyTextWidget(
-                                                          text: controller.answers[
-                                                                      controller
-                                                                          .currentQuestion!
-                                                                          .id] !=
-                                                                  null
-                                                              ? controller.answers[
-                                                                      controller
-                                                                          .currentQuestion!
-                                                                          .id]['start'] ??
-                                                                  'إضغط للإختيار'
-                                                              : 'إضغط للإختيار',
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  onTap: () {
-                                                    Get.defaultDialog(
-                                                        title: "العمر",
-                                                        titleStyle: Constant
-                                                            .getTextStyle(
-                                                                color: Theme.of(
-                                                                        context)
-                                                                    .primaryColor,
-                                                                fontSize: 24,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                        content: SizedBox(
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width -
-                                                              100,
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height /
-                                                              3,
-                                                          child:
-                                                              SingleChildScrollView(
-                                                            child: ListBody(
-                                                              children: [
-                                                                18,
-                                                                19,
-                                                                20,
-                                                                21,
-                                                                22,
-                                                                23,
-                                                                24,
-                                                                25,
-                                                                26,
-                                                                27,
-                                                                28,
-                                                                29,
-                                                                30,
-                                                                31,
-                                                                32,
-                                                                33,
-                                                                34,
-                                                                35,
-                                                                36,
-                                                                37,
-                                                                38,
-                                                                39,
-                                                                40,
-                                                                41,
-                                                                42,
-                                                                43,
-                                                                44,
-                                                                45,
-                                                                46,
-                                                                47,
-                                                                48,
-                                                                49,
-                                                                50,
-                                                                51,
-                                                                52,
-                                                                53,
-                                                                54,
-                                                                55,
-                                                                56,
-                                                                57,
-                                                                58,
-                                                                59,
-                                                                60,
-                                                                61,
-                                                                62,
-                                                                63,
-                                                                64,
-                                                                65,
-                                                                66,
-                                                                67,
-                                                                68,
-                                                                69,
-                                                                70,
-                                                                71,
-                                                                72,
-                                                                73,
-                                                                74,
-                                                                75,
-                                                                76,
-                                                                77,
-                                                                78,
-                                                                79,
-                                                                80
-                                                              ]
-                                                                  .map((e) => controller.answers[controller
-                                                                              .currentQuestion!
-                                                                              .id] !=
-                                                                          null
-                                                                      ? (e.toInt() >
-                                                                              int.parse(controller.answers[controller.currentQuestion!.id]['start'])
-                                                                          ? InkWell(
+                              SizedBox(
+                                height:
+                                    (MediaQuery.of(context).size.width / 1.5) -
+                                        30,
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children:
+                                        (controller.currentQuestion?.type!
+                                                    .toString() ==
+                                                3.toString()
+                                            ? [
+                                                SizedBox(
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height /
+                                                      3,
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      InkWell(
+                                                        onTap: () {
+                                                          Get.defaultDialog(
+                                                              title: "العمر",
+                                                              titleStyle: Constant.getTextStyle(
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .primaryColor,
+                                                                  fontSize: 24,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                              content: SizedBox(
+                                                                width: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .width -
+                                                                    100,
+                                                                height: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height /
+                                                                    3,
+                                                                child:
+                                                                    SingleChildScrollView(
+                                                                  child:
+                                                                      ListBody(
+                                                                    children: [
+                                                                      18,
+                                                                      19,
+                                                                      20,
+                                                                      21,
+                                                                      22,
+                                                                      23,
+                                                                      24,
+                                                                      25,
+                                                                      26,
+                                                                      27,
+                                                                      28,
+                                                                      29,
+                                                                      30,
+                                                                      31,
+                                                                      32,
+                                                                      33,
+                                                                      34,
+                                                                      35,
+                                                                      36,
+                                                                      37,
+                                                                      38,
+                                                                      39,
+                                                                      40,
+                                                                      41,
+                                                                      42,
+                                                                      43,
+                                                                      44,
+                                                                      45,
+                                                                      46,
+                                                                      47,
+                                                                      48,
+                                                                      49,
+                                                                      50,
+                                                                      51,
+                                                                      52,
+                                                                      53,
+                                                                      54,
+                                                                      55,
+                                                                      56,
+                                                                      57,
+                                                                      58,
+                                                                      59,
+                                                                      60,
+                                                                      61,
+                                                                      62,
+                                                                      63,
+                                                                      64,
+                                                                      65,
+                                                                      66,
+                                                                      67,
+                                                                      68,
+                                                                      69,
+                                                                      70,
+                                                                      71,
+                                                                      72,
+                                                                      73,
+                                                                      74,
+                                                                      75,
+                                                                      76,
+                                                                      77,
+                                                                      78,
+                                                                      79,
+                                                                      80
+                                                                    ]
+                                                                        .map((e) =>
+                                                                            InkWell(
                                                                               onTap: () {
                                                                                 Get.back();
-                                                                                controller.addAnswer(id: e.toString(), startOrEnd: 'end');
+                                                                                controller.addAnswer(id: e.toString(), startOrEnd: 'start');
                                                                               },
                                                                               child: Container(
                                                                                 decoration: BoxDecoration(
                                                                                   borderRadius: BorderRadius.circular(10),
-                                                                                  color: controller.answers[controller.currentQuestion!.id] != null ? ((controller.answers[controller.currentQuestion!.id]['end'] ?? '') == e.toString() ? Theme.of(context).primaryColor : Colors.transparent) : Colors.transparent,
+                                                                                  color: controller.answers[controller.currentQuestion!.id] != null ? ((controller.answers[controller.currentQuestion!.id]['start'] ?? '') == e.toString() ? Theme.of(context).primaryColor : Colors.transparent) : Colors.transparent,
                                                                                 ),
                                                                                 child: MyTextWidget(
                                                                                   text: e.toString(),
-                                                                                  color: controller.answers[controller.currentQuestion!.id] != null ? ((controller.answers[controller.currentQuestion!.id]['end'] ?? '') == e.toString() ? null : Theme.of(context).primaryColor) : Theme.of(context).primaryColor,
+                                                                                  color: controller.answers[controller.currentQuestion!.id] != null ? ((controller.answers[controller.currentQuestion!.id]['start'] ?? '') == e.toString() ? null : Theme.of(context).primaryColor) : Theme.of(context).primaryColor,
                                                                                   fontWeight: FontWeight.bold,
                                                                                 ),
                                                                               ),
-                                                                            )
-                                                                          : Container())
-                                                                      : Container())
-                                                                  .toList(),
-                                                            ),
+                                                                            ))
+                                                                        .toList(),
+                                                                  ),
+                                                                ),
+                                                              ));
+                                                        },
+                                                        child: Container(
+                                                          width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width /
+                                                                  2 -
+                                                              20,
+                                                          height: 110,
+                                                          padding:
+                                                              Constant.padding,
+                                                          margin:
+                                                              Constant.margin,
+                                                          decoration: BoxDecoration(
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .primaryColor,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20)),
+                                                          child: Column(
+                                                            children: [
+                                                              MyTextWidget(
+                                                                text: "من",
+                                                                color: Theme.of(
+                                                                        context)
+                                                                    .iconTheme
+                                                                    .color,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                              Divider(
+                                                                color: Theme.of(
+                                                                        context)
+                                                                    .iconTheme
+                                                                    .color,
+                                                              ),
+                                                              MyTextWidget(
+                                                                text: controller.answers[controller
+                                                                            .currentQuestion!
+                                                                            .id] !=
+                                                                        null
+                                                                    ? controller.answers[controller
+                                                                            .currentQuestion!
+                                                                            .id]['start'] ??
+                                                                        'إضغط للإختيار'
+                                                                    : 'إضغط للإختيار',
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ));
-                                                  },
-                                                  child: Container(
-                                                    width:
-                                                        MediaQuery.of(context)
-                                                                    .size
-                                                                    .width /
-                                                                2 -
-                                                            20,
-                                                    height: 110,
-                                                    padding: Constant.padding,
-                                                    margin: Constant.margin,
-                                                    decoration: BoxDecoration(
-                                                        color: Theme.of(context)
-                                                            .primaryColor,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20)),
-                                                    child: Column(
-                                                      children: [
-                                                        MyTextWidget(
-                                                          text: "الى",
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .iconTheme
-                                                                  .color,
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          fontWeight:
-                                                              FontWeight.bold,
                                                         ),
-                                                        Divider(
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .iconTheme
-                                                                  .color,
+                                                      ),
+                                                      InkWell(
+                                                        onTap: () {
+                                                          Get.defaultDialog(
+                                                              title: "العمر",
+                                                              titleStyle: Constant.getTextStyle(
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .primaryColor,
+                                                                  fontSize: 24,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold),
+                                                              content: SizedBox(
+                                                                width: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .width -
+                                                                    100,
+                                                                height: MediaQuery.of(
+                                                                            context)
+                                                                        .size
+                                                                        .height /
+                                                                    3,
+                                                                child:
+                                                                    SingleChildScrollView(
+                                                                  child:
+                                                                      ListBody(
+                                                                    children: [
+                                                                      18,
+                                                                      19,
+                                                                      20,
+                                                                      21,
+                                                                      22,
+                                                                      23,
+                                                                      24,
+                                                                      25,
+                                                                      26,
+                                                                      27,
+                                                                      28,
+                                                                      29,
+                                                                      30,
+                                                                      31,
+                                                                      32,
+                                                                      33,
+                                                                      34,
+                                                                      35,
+                                                                      36,
+                                                                      37,
+                                                                      38,
+                                                                      39,
+                                                                      40,
+                                                                      41,
+                                                                      42,
+                                                                      43,
+                                                                      44,
+                                                                      45,
+                                                                      46,
+                                                                      47,
+                                                                      48,
+                                                                      49,
+                                                                      50,
+                                                                      51,
+                                                                      52,
+                                                                      53,
+                                                                      54,
+                                                                      55,
+                                                                      56,
+                                                                      57,
+                                                                      58,
+                                                                      59,
+                                                                      60,
+                                                                      61,
+                                                                      62,
+                                                                      63,
+                                                                      64,
+                                                                      65,
+                                                                      66,
+                                                                      67,
+                                                                      68,
+                                                                      69,
+                                                                      70,
+                                                                      71,
+                                                                      72,
+                                                                      73,
+                                                                      74,
+                                                                      75,
+                                                                      76,
+                                                                      77,
+                                                                      78,
+                                                                      79,
+                                                                      80
+                                                                    ]
+                                                                        .map((e) => controller.answers[controller.currentQuestion!.id] !=
+                                                                                null
+                                                                            ? (e.toInt() > int.parse(controller.answers[controller.currentQuestion!.id]['start'])
+                                                                                ? InkWell(
+                                                                                    onTap: () {
+                                                                                      Get.back();
+                                                                                      controller.addAnswer(id: e.toString(), startOrEnd: 'end');
+                                                                                    },
+                                                                                    child: Container(
+                                                                                      decoration: BoxDecoration(
+                                                                                        borderRadius: BorderRadius.circular(10),
+                                                                                        color: controller.answers[controller.currentQuestion!.id] != null ? ((controller.answers[controller.currentQuestion!.id]['end'] ?? '') == e.toString() ? Theme.of(context).primaryColor : Colors.transparent) : Colors.transparent,
+                                                                                      ),
+                                                                                      child: MyTextWidget(
+                                                                                        text: e.toString(),
+                                                                                        color: controller.answers[controller.currentQuestion!.id] != null ? ((controller.answers[controller.currentQuestion!.id]['end'] ?? '') == e.toString() ? null : Theme.of(context).primaryColor) : Theme.of(context).primaryColor,
+                                                                                        fontWeight: FontWeight.bold,
+                                                                                      ),
+                                                                                    ),
+                                                                                  )
+                                                                                : Container())
+                                                                            : Container())
+                                                                        .toList(),
+                                                                  ),
+                                                                ),
+                                                              ));
+                                                        },
+                                                        child: Container(
+                                                          width: MediaQuery.of(
+                                                                          context)
+                                                                      .size
+                                                                      .width /
+                                                                  2 -
+                                                              20,
+                                                          height: 110,
+                                                          padding:
+                                                              Constant.padding,
+                                                          margin:
+                                                              Constant.margin,
+                                                          decoration: BoxDecoration(
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .primaryColor,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20)),
+                                                          child: Column(
+                                                            children: [
+                                                              MyTextWidget(
+                                                                text: "الى",
+                                                                color: Theme.of(
+                                                                        context)
+                                                                    .iconTheme
+                                                                    .color,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                              Divider(
+                                                                color: Theme.of(
+                                                                        context)
+                                                                    .iconTheme
+                                                                    .color,
+                                                              ),
+                                                              MyTextWidget(
+                                                                text: controller.answers[controller
+                                                                            .currentQuestion!
+                                                                            .id] !=
+                                                                        null
+                                                                    ? controller.answers[controller
+                                                                            .currentQuestion!
+                                                                            .id]['end'] ??
+                                                                        'إضغط للإختيار'
+                                                                    : 'إضغط للإختيار',
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
-                                                        MyTextWidget(
-                                                          text: controller.answers[
-                                                                      controller
-                                                                          .currentQuestion!
-                                                                          .id] !=
-                                                                  null
-                                                              ? controller.answers[
-                                                                      controller
-                                                                          .currentQuestion!
-                                                                          .id]['end'] ??
-                                                                  'إضغط للإختيار'
-                                                              : 'إضغط للإختيار',
-                                                        ),
-                                                      ],
-                                                    ),
+                                                      )
+                                                    ],
                                                   ),
                                                 )
-                                              ],
-                                            ),
-                                          )
-                                        ]
-                                      : (controller.currentQuestion?.options ??
-                                              [])
-                                          .map(
-                                            (e) => MyButton(
-                                              image: e.image,
-                                              descritopn: e.description,
-                                              text: e.choice!,
-                                              action: () {
-                                                controller.addAnswer(id: e.id!);
-                                              },
-                                              color: (controller
-                                                          .currentQuestion!.type
-                                                          .toString() ==
-                                                      2.toString()
-                                                  ? ((controller.answers[controller.currentQuestion!.id.toString()] ??
-                                                              [])
-                                                          .contains(
-                                                              e.id!.toString())
-                                                      ? Theme.of(context)
-                                                          .iconTheme
-                                                          .color
-                                                      : null)
-                                                  : ((controller.answers[controller
-                                                              .currentQuestion!
-                                                              .id
-                                                              .toString()] ==
-                                                          e.id)
-                                                      ? Theme.of(context)
-                                                          .iconTheme
-                                                          .color
-                                                      : null)),
-                                            ),
-                                          )
-                                          .toList()),
+                                              ]
+                                            : (controller.currentQuestion
+                                                        ?.options ??
+                                                    [])
+                                                .map(
+                                                  (e) => MyButton(
+                                                    image: e.image,
+                                                    descritopn: e.description,
+                                                    text: e.choice!,
+                                                    action: () {
+                                                      controller.addAnswer(
+                                                          id: e.id!);
+                                                    },
+                                                    color: (controller.currentQuestion!.type
+                                                                .toString() ==
+                                                            2.toString()
+                                                        ? ((controller.answers[controller.currentQuestion!.id.toString()] ?? [])
+                                                                .contains(e.id!
+                                                                    .toString())
+                                                            ? Theme.of(context)
+                                                                .iconTheme
+                                                                .color
+                                                            : null)
+                                                        : ((controller.answers[controller
+                                                                    .currentQuestion!
+                                                                    .id
+                                                                    .toString()] ==
+                                                                e.id)
+                                                            ? Theme.of(context)
+                                                                .iconTheme
+                                                                .color
+                                                            : null)),
+                                                  ),
+                                                )
+                                                .toList()),
+                                  ),
                                 ),
                               ),
                               Container(

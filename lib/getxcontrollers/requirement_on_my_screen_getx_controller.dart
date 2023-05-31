@@ -140,32 +140,32 @@ class RequrementOnMyScreenGetXController extends GetxController {
       );
     } else {
       // print(responseModel);
-      questions = (responseModel.body as List).map((e) {
+      List<QuestionModel> temp = [];
+      (responseModel.body as List).forEach((e) {
         QuestionModel questionModel = QuestionModel.fromMap(e);
         if (questionModel.image == null) {
           questionModel.image = Constant.getRanomAsset();
         }
-        if (questionModel.skippable == 1.toString()) {
-          questionModel.options!.add(OptionModel.noMatterOption());
-        }
-        if (questionModel.type == 2.toString()) {
+        if (questionModel.type.toString() == 2.toString()) {
           answers[questionModel.id.toString()] = [];
           questionModel.options?.forEach((element) {
             if (element.checked == 1) {
               answers[questionModel.id.toString()].add(element.id);
             }
           });
-        } else {
+        } else if (questionModel.type.toString() == 1.toString()) {
           questionModel.options?.forEach((element) {
             if (element.checked == 1) {
               answers[questionModel.id.toString()] = element.id;
             }
           });
         }
-
-        return questionModel;
-      }).toList();
-
+        if (questionModel.type.toString() == 3.toString()) {
+        } else {
+          temp.add(questionModel);
+        }
+      });
+      questions = temp;
       // questions.forEach((element) {
       //   print(element);
       // });
